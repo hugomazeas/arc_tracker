@@ -2,6 +2,32 @@
 
 A minimalist Laravel application for tracking archery scores in your office with a fun leaderboard system!
 
+## Getting Started
+
+To set up this project from scratch, follow these steps:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/hugomazeas/arc_tracker.git
+cd arc_tracker
+
+# 2. Install PHP dependencies
+composer install
+
+# 3. Copy the environment file and generate application key
+cp .env.example .env
+php artisan key:generate
+
+# 4. Create the database and run migrations
+touch database/database.sqlite
+php artisan migrate
+
+# 5. Start the development server
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+Then visit: `http://localhost:8000`
+
 ## Features
 
 - **Interactive Visual Target**: Click on an SVG target to record arrow positions with exact X,Y coordinates
@@ -20,9 +46,9 @@ A minimalist Laravel application for tracking archery scores in your office with
 - Vanilla JavaScript frontend
 - SVG-based target interface
 
-## Installation
+## Quick Start (If Already Installed)
 
-The application is already set up in this directory. To start it:
+If the application is already set up in your directory:
 
 ```bash
 php artisan serve --host=0.0.0.0 --port=8000
