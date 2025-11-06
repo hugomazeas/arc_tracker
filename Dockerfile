@@ -46,6 +46,10 @@ COPY docker/supervisor/supervisord.conf /etc/supervisord.conf
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
+# Copy .env.example to .env and generate application key
+RUN cp .env.example .env && \
+    php artisan key:generate --force
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage \
