@@ -4,7 +4,58 @@ A minimalist Laravel application for tracking archery scores in your office with
 
 ## Getting Started
 
-To set up this project from scratch, follow these steps:
+### Option 1: Docker Hub (Super Easy - No Build Required)
+
+The absolute easiest way to run this project - pull the pre-built image from Docker Hub:
+
+```bash
+# Pull and run the pre-built image
+docker pull hugomazeas/arc_tracker:latest
+docker run -d -p 8000:80 --name archery-tracker hugomazeas/arc_tracker:latest
+
+# The application will be available at http://localhost:8000
+```
+
+Or use docker-compose with the pre-built image:
+```bash
+# Download just the docker-compose file
+curl -o docker-compose.yml https://raw.githubusercontent.com/hugomazeas/arc_tracker/master/docker-compose-hub.yml
+
+# Start the application
+docker-compose up -d
+```
+
+**Docker Hub Link:** https://hub.docker.com/r/hugomazeas/arc_tracker
+
+### Option 2: Docker (Build from Source)
+
+If you want to build the Docker image yourself:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/hugomazeas/arc_tracker.git
+cd arc_tracker
+
+# 2. Start with Docker Compose (builds the image)
+docker-compose up -d
+
+# The application will be available at http://localhost:8000
+```
+
+The Docker setup includes:
+- PHP 8.3 with all required extensions
+- Nginx web server
+- SQLite database (automatically created)
+- Auto-runs migrations on first start
+
+To stop the application:
+```bash
+docker-compose down
+```
+
+### Option 3: Manual Installation
+
+If you prefer to run without Docker:
 
 ```bash
 # 1. Clone the repository
